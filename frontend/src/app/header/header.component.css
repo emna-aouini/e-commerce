@@ -1,0 +1,32 @@
+li, span{
+font-family:"Roboto Condensed";
+text-transform:uppercase;
+font-weight:400;
+font-style:normal;
+font-size:400;
+color:#fff;
+}
+
+.entete{
+width:90%;
+margin:auto;
+background-color: #434752;
+
+color:#fff;
+}
+ .coordonne {
+padding-left:1%;
+ list-style-type:none;
+display:flex;
+
+}
+.navbar ul li a{
+display:block;
+height:100%;
+}
+.navbar ul li a:hover{
+text-decoration:underline;}
+
+
+
+

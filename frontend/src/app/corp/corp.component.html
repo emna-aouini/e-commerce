@@ -1,0 +1,29 @@
+<div class="corpcomponent">
+<div class="search">
+  Search:<input type="text" placeholder="Search book" [(ngModel)]="searchText" (input)="Search()"/>
+</div>
+  {{searchText}}
+  <div class="container">
+    <div class="card-deck">
+      <div class="col-lg-3 col-sm-6" *ngFor="let c of task" >
+        <img class="card-img-top img-fluid" src={{c.couverture}} alt="Card image cap">
+          <div class="card-body">
+           <h4 class="card-title">{{c.titre}}</h4>
+           <p class="card-text">{{c.description}}</p>
+           <p class="card-text"><small class="text-muted">{{c.price}}</small></p>
+           <p class="card-text"><small class="text-muted">{{c.quantitie}}</small></p>
+         </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<ul class="nav nav-pills">
+  <li class="nav-items" *ngFor="let p of pages; let i=index">
+    <a class="nav-link active" href="#" (click)="changeNumPage(i,$event)">{{i}}</a>
+  </li>
+
+</ul>
+
+</div>
