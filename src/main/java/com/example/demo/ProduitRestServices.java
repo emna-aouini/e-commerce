@@ -40,8 +40,5 @@ public class ProduitRestServices {
         return produitRepository.save(p);
      }
 
-     @DeleteMapping(value="/listProduits/{id}")
-    public void delete(@PathVariable(name="id") Long id){
-         produitRepository.deleteById(id);
-     }
+
 }
