@@ -1,0 +1,137 @@
+.globalPanier{
+width:70%;
+/*border:1px solid #000;*/
+
+}
+
+.entetePanier{
+color:#ff5208;
+font-size: 80%;
+font-weight: 400;
+Font:16px Roboto,Arial,sans-serif;
+}
+.fa{
+margin-right:0.5%;
+}
+.firstentete{
+height:60px;
+/*width:60%;*/
+padding-left:3%;
+padding-top:1%;
+background-color:#ebebeb;
+border-bottom:1px solid #fff;
+}
+.corpPanier{
+display:flex;
+flex-grow: 2;
+border-bottom:1px solid #fff;
+background-color:#ebebeb;
+/*width:60%;*/
+height:150px;
+}
+img.imagecouverture {
+    width: 100%;
+     height:100px;
+}
+.couvertureElemetPanier{
+width:10%;
+margin:2% 2%;
+
+}
+.corpPanierHigher{
+display:flex;
+justify-content:space-between;
+margin-bottom:5%;
+}
+.descptionElementPanier{
+
+margin:2%;
+width:100%;
+}
+.textquantitie{
+width:20%;
+text-align:center;
+}
+.corpPanierLower{
+display:flex;
+justify-content:space-between;
+}
+.corpPanierLower1{
+display:flex;
+}
+
+.recapCart{
+background-color:#ebebeb;
+}
+.cartComponentView{
+display:flex;
+flex-grow: 2;
+
+
+}
+.recapCart{
+width:50%;
+margin-left:1%;
+
+}
+.recapCartEntete p{
+text-align:center;
+padding-top:3%;
+color:#ff5208;
+font-size: 80%;
+font-weight: 400;
+Font:18px Roboto,Arial,sans-serif;
+
+}
+.recapCartEntete{
+border-bottom:1px solid #fff;
+}
+
+.recapCartArticle{
+color: #ff5208;
+display:flex;
+justify-content:space-between;
+padding:0% 2%;
+border-bottom:1px solid #fff;
+}
+.recapCartArticle span{
+font-weight:bolder;
+color: #ff5208;
+
+}
+
+.descriptionfrais{
+width:50%;}
+.btn{
+   background-color: #ff5208;
+    border: 0;
+    text-transform: uppercase;
+    font-size: .725rem;
+    width: 50%;
+    padding: .5rem;
+    -webkit-box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
+    box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
+    color: #fff;
+   margin-left:30%;
+   margin-right:30%;
+    }
+   /* .recapfraisdeport{
+    display:flex;
+    }*/
+    .recapfraisport{
+    display:flex;
+    flex-direction:column;
+    border:1px solid #fff;
+    }
+
+    .fraisdeportheight,.totalPanierFirst{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:0% 2%;
+
+    }
+
+
+
+

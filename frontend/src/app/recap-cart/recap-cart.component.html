@@ -1,0 +1,49 @@
+<div class="recapCart">
+  <div class="recapCartEntete">
+    <p>RÉCAPITULATIF</p>
+  </div>
+
+  <div class="recapCartArticle">
+    <div>
+      <p><span>Panier</span>({{nbElement}} articles)</p>
+      <ul>
+        <li *ngFor="let elem of listItem">{{elem.titre}}{{elem.qt>1?'(x'+elem.qt+')':''}}</li>
+      </ul>
+    </div>
+    <div>
+      <p>{{totalPricePanier|number:'1.2-2'}}</p>
+    </div>
+
+  </div>
+
+  <div class="recapfraisport">
+    <div class="fraisdeport">
+      <div class="fraisdeportheight">
+        <p class="descriptionfrais">
+          <strong>Frais de port estimés</strong>
+        </p>
+
+        <p>
+          0,01 €
+        </p>
+      </div>
+      <div class="fraisportdescription">
+        Frais de port à 1 centime, à partir de 49 € d'achats (livraison en France métropolitaine).
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="totalPanier">
+    <div class="totalPanierFirst">
+      <p>Total</p>
+      <p>{{totalPricePanier}}</p>
+    </div>
+    <div class="totalPanierSecond">
+      <button class="btn bouton_commander py-3 py-sm-2" (click)="validerPanier()">VALIDER MON PANIER</button>
+    </div>
+    <div class="totalPanierThird">ssss
+    </div>
+  </div>
+</div>

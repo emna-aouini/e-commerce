@@ -1,0 +1,70 @@
+.recapCart{
+background-color:#ebebeb;
+width:100%;
+}
+.cartComponentView{
+display:flex;
+flex-grow: 2;
+
+
+}
+.recapCart{
+margin-left:1%;
+
+}
+.recapCartEntete p{
+text-align:center;
+padding-top:3%;
+color:#ff5208;
+font-size: 80%;
+font-weight: 400;
+Font:18px Roboto,Arial,sans-serif;
+
+}
+.recapCartEntete{
+border-bottom:1px solid #fff;
+}
+
+.recapCartArticle{
+color: #ff5208;
+display:flex;
+justify-content:space-between;
+padding:0% 2%;
+border-bottom:1px solid #fff;
+}
+.recapCartArticle span{
+font-weight:bolder;
+color: #ff5208;
+
+}
+
+.descriptionfrais{
+    width:50%;
+}
+.btn{
+   background-color: #ff5208;
+    border: 0;
+    text-transform: uppercase;
+    font-size: .725rem;
+    width: 50%;
+    padding: .5rem;
+    -webkit-box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
+    box-shadow: 0 4px 4px -4px rgba(0,0,0,.2);
+    color: #fff;
+   margin-left:30%;
+  /* margin-right:30%;*/
+    }
+
+    .recapfraisport{
+    display:flex;
+    flex-direction:column;
+    border:1px solid #fff;
+    }
+
+    .fraisdeportheight,.totalPanierFirst{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:0% 2%;
+
+    }

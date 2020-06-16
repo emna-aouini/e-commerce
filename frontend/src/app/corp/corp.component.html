@@ -1,17 +1,29 @@
 <div class="corpcomponent">
-<div class="search">
-  Search:<input type="text" placeholder="Search book" [(ngModel)]="searchText" (input)="Search()"/>
-</div>
+
+  <div class="search">
+    <div>
+      Search:<input type="text" placeholder="Search book" [(ngModel)]="searchText" (input)="Search()"/>
+    </div>
+    <ul>
+      <li class="comptepanier"><i class="fa fa-user" aria-hidden="true"></i>MON COMPTE</li>
+      <li>Connexion</li>
+    </ul>
+    <ul>
+      <li><a routerLink="/cart">MON PANIER</a></li>
+      <li>{{nbElement}} article</li>
+    </ul>
+  </div>
   {{searchText}}
   <div class="container">
     <div class="card-deck">
       <div class="col-lg-3 col-sm-6" *ngFor="let c of task" >
-        <img class="card-img-top img-fluid" src={{c.couverture}} alt="Card image cap">
+        <img class="card-img-top img-fluid" src={{c.couverture}} alt="Card image cap" (click)="details(c.id)">
           <div class="card-body">
            <h4 class="card-title">{{c.titre}}</h4>
            <p class="card-text">{{c.description}}</p>
-           <p class="card-text"><small class="text-muted">{{c.price}}</small></p>
+           <p class="card-text"><small class="text-muted">{{c.price}}€</small></p>
            <p class="card-text"><small class="text-muted">{{c.quantitie}}</small></p>
+            <button class="bouton-panier" (click)="addToCart(c)"><i class="fas fa-shopping-basket"></i>Add to card</button>
          </div>
       </div>
     </div>

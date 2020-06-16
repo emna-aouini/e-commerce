@@ -1,0 +1,160 @@
+<div >
+  <div class="etape-panier row justify-content-center no-gutters py-4">
+    <div class="etape-1 col-md-auto w-auto  py-2 px-4 bg_orange">
+      <span class="grisbleu font-weight-light"><i class="fas fa-shopping-basket mr-2"></i>Panier</span>
+    </div>
+    <div class="etape-2 col-md-auto w-auto py-2 px-4 bg_grisClair">
+      <span class=" blanc font-weight-light"><i class="fas fa-truck mr-2"></i>Livraison &amp; Paiement</span>
+    </div>
+  </div>
+
+  <div class="row no-gutters justify-content-center">
+   <section class="mon-panier1 col-md-8 bg-grisclair py-3" >
+     <div class="row col-md-12 mx-2 pb-1">
+       <p class="h5 text-uppercase orange mt-2">
+       <i class="fas fa-lock mr-2"></i>
+       <small>Mode de livraison</small>
+       </p>
+     </div>
+     <div class="row no-gutters my-0 mx-4">
+       <div class="onglet col-6 text-center py-3" (mouseover)="hoverLivraisonDomicile=true" (mouseleave)="hoverLivraisonDomicile=false"
+            [ngStyle]="{backgroundColor:hoverLivraisonDomicile==true?'#fff':'#ebebeb'}"
+       >
+         <i class="fas fa-user-plus d-block m-auto orange"></i>
+         <p class="mt-2">Livraison<br/> à votre domicile</p>
+         <span class="radio-tunnel" (click)="afficheLivraisonDomicile()"
+               [ngStyle]="{backgroundColor:hoverLivraisonDomicile==true?'#56b900':'#ebebeb'}"></span>
+         <p class="m-0 orange">A partir de <strong>0<small>,01 €</small></strong></p>
+
+       </div>
+       <div class="onglet col-6 text-center py-3" (mouseover)="hoverLivraisonPointRelais=true" (mouseleave)="hoverLivraisonPointRelais=false"
+       [ngStyle]="{backgroundColor:hoverLivraisonPointRelais==true?'#fff':'#ebebeb'}">
+         <i class="fas fa-user d-block m-auto orange"></i>
+         <p class="mt-2">Livraison<br/>en point de relais</p>
+         <span class="radio-tunnel" (click)="afficheLivraisonPointRelais()"
+               [ngStyle]="{backgroundColor:hoverLivraisonPointRelais==true?'#56b900':'#ebebeb'}"></span>
+         <p class="m-0 orange">A partir de <strong>0<small>,01 €</small></strong></p>
+       </div>
+
+     </div>
+     <div class="container col" [ngStyle]="{display:afficheListAddress?'flex':'none'}">
+     <div class="row justify-content-start flex-wrap listAddress" >
+       <div *ngFor="let elem of listAddress" class="row  element px-3 py-2" >
+         <div>
+           <input type="radio" ng-checked="elem.parentId==1"/>
+         </div>
+         <div class="px-2">
+           <small class="d-inline-block w-100">{{elem.street}}</small>
+           <small class="d-inline-block w-100">{{elem.city}}</small>
+         </div>
+       </div>
+
+       <div class="my-3 mx-3">
+         <button type="button" class="btn bouton_bleu_cpt_100" (click)="showModal()"
+                 data-toggle="modal" data-target="#exampleModal">+ AJOUTER UNE ADRESSE
+         </button>
+       </div>
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">
+                 <i class="fas fa-check-square mr-2"></i> Ajouter une adresse
+               </h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <div class="form-group">
+                     <div class="form-check form-check-inline">
+                       <div class="custom-control custom-radio">
+                         <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                         <label class="custom-control-label" for="defaultUnchecked">Monsieur</label>
+                       </div>
+
+                       <div class="custom-control custom-radio">
+                         <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                         <label class="custom-control-label" for="defaultUnchecked">Madame</label>
+                       </div>
+                     </div>
+                     <div class="row no-gutters">
+                       <div class="row my-3">
+                         <div class="col-6">
+                           <input type="text" class="formRow" value={{x.nom}}/>
+                         </div>
+                         <div class="col-6">
+                           <input type="text" class="formRow" value={{x.prenom}}/>
+                         </div>
+                       </div>
+
+                       <div class="formRow  col-12 my-3">
+                            <span class="blocking-span">
+                             <input type="text" class="inputText formRow"  [(ngModel)]="societe" required/>
+                             <span class="floating-label">Société</span>
+                            </span>
+                       </div>
+
+                    <div class="formRow col-12  my-3">
+                      <span class="blocking-span">
+                        <input type="text" class="inputText formRow" [(ngModel)]="adresse1" required/>
+                        <span class="floating-label">Adresse 1*</span>
+                      </span>
+                    </div>
+
+                       <div class="formRow col-12  my-3">
+                          <span class="blocking-span">
+                            <input type="text" class="inputText formRow" [(ngModel)]="adresse2" required/>
+                            <span class="floating-label">Adresse 2*</span>
+                          </span>
+                       </div>
+
+
+
+
+
+                       <div class="col-sm-4 pr-2">
+                        <span class="blocking-span">
+                          <input type="text" class="inputText formRow"  [(ngModel)]="codePostal"required/>
+                          <span class="floating-label">Code Postal*</span>
+                        </span>
+                       </div>
+                       <div class="col-sm-4 pr-2">
+                             <span class="blocking-span">
+                              <input type="text" class="inputText formRow" [(ngModel)]="ville" required/>
+                              <span class="floating-label">Ville*</span>
+                            </span>
+                       </div>
+                       <div class="col-sm-4 pl-sm-2">
+                            <span class="blocking-span">
+                              <select class="inputText formRow">
+                                <option class="floating-label">France métropolitaine</option>
+                                <option>PAris</option>
+                              </select>
+                            </span>
+                       </div>
+                    </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ajouterAdress()">AJOUTER L'ADRESSE </button>
+
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+
+     </div>
+
+   </section>
+
+    <app-recap-cart class="col-md-4"></app-recap-cart>
+  </div>
+</div>

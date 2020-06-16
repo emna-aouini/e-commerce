@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{ConfigService} from '../config.service';
 import {Router} from '@angular/router';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-corp',
@@ -10,10 +11,13 @@ import {Router} from '@angular/router';
 export class CorpComponent implements OnInit {
 task;
 searchText;
+tab=[];
+nbElement=0;
+contentCart:number=0;
  public page:number=0;
-public pages:Array<number>;
+ public pages:Array<number>;
 
-  constructor(private configService:ConfigService,private router:Router) { }
+  constructor(private configService:ConfigService,private router:Router,private cartService:CartService) { }
 
   ngOnInit(): void {
     this.getContries();
@@ -31,6 +35,8 @@ public pages:Array<number>;
     this.router.navigateByUrl('/');
     })
   }
+
+
   changeNumPage(i,event){
   event.preventDefault();
   this.page=i;
@@ -53,5 +59,24 @@ public pages:Array<number>;
 
 
   }
+  //add element to Cart
+   addToCart(c){
+  this.cartService.addItem(c);
+  this.nbElement=this.cartService.getNbElement();
+  console.log("la taille du tableau est:"+this.nbElement);
+  /*this.tab.push(c);
+  this.contentCart=this.tab.length;
+  console.log(this.contentCart+' articles');
+console.log(this.tab);*/
+
+
+    }
+    details(id){
+    this.router.navigateByUrl("/detailsproduct/"+id);
+    }
+
+    panier(){
+    this.router.navigateByUrl("/cart");
+    }
 
 }

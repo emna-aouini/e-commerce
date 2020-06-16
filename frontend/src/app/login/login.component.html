@@ -1,0 +1,230 @@
+<div class="etape-panier row justify-content-center no-gutters py-4">
+  <div class="etape-1 col-md-auto w-auto bg_grisClair py-2 px-4">
+    <span class="grisbleu font-weight-light"><i class="fas fa-shopping-basket mr-2"></i>Panier</span>
+  </div>
+  <div class="etape-2 col-md-auto w-auto py-2 px-4 bg_orange">
+    <span class=" blanc font-weight-light"><i class="fas fa-truck mr-2"></i>Livraison &amp; Paiement</span>
+  </div>
+</div>
+<div class="corp">
+  <section class="mon-panier col-12 col-sm-8 col-lg-8 px-4 pr-sm-2" data-container="tunnel">
+    <div class="bg_grisclair py-3 mb-4" data-container="tunnel-block" data-next-block="/Commande/Shipping/" data-next-checkout-step="2">
+      <div class="px-4 pb-1">
+        <p class="h5 text-uppercase orange " style="color:#ff5208;"><i class="fas fa-lock mr-2"></i><small>Identifiez-vous</small></p>
+      </div>
+      <div class="row no-gutters my-2 mx-4" data-container="tabs">
+        <div class="col-6 bg_tabs" data-action="tab-trigger">
+          <div class="onglet text-center py-3 px-1 border-right" (mouseover)="hoverCreerCompote=true"
+               (mouseleave)="hoverCreerCompote=false" [ngStyle]="{backgroundColor: hoverCreerCompote==true?'#fff':'#ebebeb' }">
+            <i class="fas fa-user-plus d-block m-auto orange" style="color:#ff5208;"></i>
+            <p class="mt-2">Créer mon compte</p>
+            <span class="radio-tunnel" (click)="afficheCreerCompte()"
+                  [ngStyle]="{backgroundColor: hoverCreerCompote==true?'#56b900':'#ebebeb' }">
+                    <span></span>
+                </span>
+          </div>
+        </div>
+        <div class="col-6 bg_tabs" data-action="tab-trigger">
+          <div class="onglet text-center py-3 px-1 border-left" (mouseover)="hoverDejaClient=true"
+               (mouseleave)="hoverDejaClient=false" [ngStyle]="{backgroundColor: hoverDejaClient==true?'#fff':'#ebebeb' }">
+            <i class="fas fa-user d-block m-auto orange" style="color:#ff5208;"></i>
+            <p class="mt-2">Déjà client</p>
+            <span class="radio-tunnel" (click)="afficheDejaClient()"
+                  [ngStyle]="{backgroundColor: hoverDejaClient==true?'#56b900':'#ebebeb' }" >
+                    <span></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-12 row no-gutters" data-container="tab-content" [ngStyle]="{'display':creeCompte?'block':'none'}">
+          <form name="eyrolles_newusertype" method="post" #myForm="ngForm" (ngSubmit)="onSubmitRegister();myForm.reset()" class="col-12">
+            <div class="bg-white p-4">
+
+              <div class="alert alert-danger alert-dismissible fade show" [ngStyle]="{'display':errregister==''?'none':'block'}"  role="alert">{{errregister}}</div>
+
+              <div class="row no-gutters">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="eyrolles_newusertype_cptCivilite_0" name="eyrolles_newusertype[cptCivilite]" required="required" class="custom-control-input" value="0">
+                  <label class="custom-control-label pb-size font-weight-light" for="eyrolles_newusertype_cptCivilite_0">Monsieur</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="eyrolles_newusertype_cptCivilite_1" name="eyrolles_newusertype[cptCivilite]" required="required" class="custom-control-input" value="1">
+                  <label class="custom-control-label pb-size font-weight-light" for="eyrolles_newusertype_cptCivilite_1">Madame</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6 pt-2">
+                  <fieldset class="formRow">
+                    <div class="formRow-item">
+                      <label for="eyrolles_newusertype_cptNom" class="formRow-input-wrapper js-inputWrapper">
+                        <input type="text" id="eyrolles_newusertype_cptNom" name="eyrolles_newusertype[cptNom]" required="required"
+                               maxlength="50" class="formRow-input js-input" placeholder="" [(ngModel)]="nom"><span class="placeholder">Votre nom</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12 col-sm-6 pt-2">
+                  <fieldset class="formRow">
+                    <div class="formRow-item">
+                      <label for="eyrolles_newusertype_cptPrenom" class="formRow-input-wrapper js-inputWrapper">
+                        <input type="text" id="eyrolles_newusertype_cptPrenom" name="eyrolles_newusertype[cptPrenom]" required="required"
+                               maxlength="50" class="formRow-input js-input" placeholder="" [(ngModel)]="prenom"><span class="placeholder">Votre prénom</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12 col-sm-6 pt-2">
+                  <fieldset class="formRow">
+                    <div class="formRow-item">
+                      <label for="eyrolles_newusertype_email" class="formRow-input-wrapper js-inputWrapper">
+                        <input type="text" id="eyrolles_newusertype_email" name="eyrolles_newusertype[email]" required="required"
+                         class="formRow-input js-input" placeholder="" [(ngModel)]="email">
+                        <span class="placeholder">Votre e-mail</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12 col-sm-6 pt-2">
+                  <fieldset class="formRow">
+                    <div class="formRow-item">
+                      <label for="eyrolles_newusertype_password" class="formRow-input-wrapper js-inputWrapper">
+                        <input type="password" id="eyrolles_newusertype_password" name="eyrolles_newusertype[password]" required="required"
+                               class="formRow-input js-input" placeholder="" [(ngModel)]="password"><span class="placeholder">Mot de passe</span>
+                      </label>
+                      <span class="showpw"><i class="far fa-eye"></i></span>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12 text-center p-4">
+                  <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                    <input type="checkbox" id="eyrolles_newusertype_cptNewsletterInscrit" name="eyrolles_newusertype[cptNewsletterInscrit]"
+                           class="custom-control-input" data-toggle="collapse" data-target="#newsletters" value="1">
+                    <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_cptNewsletterInscrit">Je m'abonne aux newsletter Eyrolles thématiques</label>
+                    <div class="collapse" id="newsletters">
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_4" name="eyrolles_newusertype[news][]" class="custom-control-input" value="4">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_4">BTP</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_8" name="eyrolles_newusertype[news][]" class="custom-control-input" value="8">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_8">Maison &amp; Bricolage</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_2" name="eyrolles_newusertype[news][]" class="custom-control-input" value="2">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_2">Business &amp; Vie Professionnelle</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_3" name="eyrolles_newusertype[news][]" class="custom-control-input" value="3">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_3">Informatique &amp; Nouvelles Technologies</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_7" name="eyrolles_newusertype[news][]" class="custom-control-input" value="7">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_7">Arts graphiques &amp; Design</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_5" name="eyrolles_newusertype[news][]" class="custom-control-input" value="5">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_5">Photo &amp; Vidéo</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_11" name="eyrolles_newusertype[news][]" class="custom-control-input" value="11">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_11">Loisirs créatifs</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_12" name="eyrolles_newusertype[news][]" class="custom-control-input" value="12">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_12">Vie pratique</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_13" name="eyrolles_newusertype[news][]" class="custom-control-input" value="13">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_13">Santé &amp; Bien-être</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_6" name="eyrolles_newusertype[news][]" class="custom-control-input" value="6">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_6">Développement personnel</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_14" name="eyrolles_newusertype[news][]" class="custom-control-input" value="14">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_14">Romans</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_15" name="eyrolles_newusertype[news][]" class="custom-control-input" value="15">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_15">Enfants &amp; Pédagogie</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_10" name="eyrolles_newusertype[news][]" class="custom-control-input" value="10">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_10">Culture générale</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_9" name="eyrolles_newusertype[news][]" class="custom-control-input" value="9">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_9">Événements</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_16" name="eyrolles_newusertype[news][]" class="custom-control-input" value="16">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_16">Sciences</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_17" name="eyrolles_newusertype[news][]" class="custom-control-input" value="17">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_17">Tourisme</label>
+                      </div>
+                      <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                        <input type="checkbox" id="eyrolles_newusertype_news_18" name="eyrolles_newusertype[news][]" class="custom-control-input" value="18">
+                        <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_news_18">Droit</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-control custom-checkbox mr-sm-2 mt-2">
+                    <input type="checkbox" id="eyrolles_newusertype_cptNewsletterPartenaire" name="eyrolles_newusertype[cptNewsletterPartenaire]" class="custom-control-input" value="1">
+                    <label class="custom-control-label pb-size grisbleu font-weight-light" for="eyrolles_newusertype_cptNewsletterPartenaire">Je souhaite recevoir les offres des partenaires Eyrolles</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center bg_grisclair mt-4 ">
+              <input type="submit" class="btn bouton_orange_classique w-auto text-truncate" value="CRÉER VOTRE COMPTE">
+            </div>
+            <input type="hidden" id="eyrolles_newusertype__token" name="eyrolles_newusertype[_token]" value="VxBWK0chAn32pO1CsTNESN7xXCR05k9TF1_YgJP9yO4"></form>
+        </div>
+
+        <div class="col-12 row no-gutters" data-container="tab-content" [ngStyle]="{'display':dejaClient?'block':'none'}">
+          <form class="col-12" method="post" #myForm="ngForm" (ngSubmit)="onSubmitLogin();myForm.reset()" method="post" >
+            <div class="bg-white p-4">
+
+              <div class="alert alert-danger alert-dismissible fade show" [ngStyle]="{'display':err==''?'none':'block'}">{{err}}</div>
+
+              <div class="row">
+                <div class="col-12 col-sm-6 pt-2">
+                  <fieldset class="formRow">
+                    <div class="formRow-item">
+                      <label for="username" class="formRow-input-wrapper js-inputWrapper">
+                        <input type="email" class="formRow-input js-input" name="_username" id="username" placeholder="" required="" value="" [(ngModel)]="email">
+                        <span class="placeholder">Votre email</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12 col-sm-6 pt-2">
+                  <fieldset class="formRow">
+                    <div class="formRow-item">
+                      <label for="password" class="formRow-input-wrapper js-inputWrapper">
+                        <input type="password" class="formRow-input js-input" id="password" name="_password" placeholder="" required="" [(ngModel)]="password">
+                        <span class="placeholder">Mot de passe</span>
+                      </label>
+                      <span class="showpw"><i class="far fa-eye"></i></span>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div class="text-center bg_grisclair mt-4 ">
+              <input type="hidden" name="_csrf_token" value="6ztsB6VOFcKAhGfivwZHEES4KbthPl9z8Qqcc9zp7Zw">
+              <input type="submit" class="btn bouton_orange_classique w-auto text-truncate" value="ME CONNECTER">
+
+              <p class="grisbleudense mt-3 mb-1"><a href="/Accueil/Compte/motdepasse.php">Mot de passe oublié ?</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-recap-cart></app-recap-cart>
+
+</div>
